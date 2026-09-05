@@ -47,6 +47,11 @@ After that, the workflow also runs automatically:
 - when relevant files are pushed to `main`;
 - once per day on the schedule.
 
+GitHub disables scheduled workflows after 60 days without a push to the
+repository. To avoid having to re-enable it by hand, the workflow includes a
+`keepalive` job that re-enables itself through the GitHub API on every run,
+which resets that 60-day timer.
+
 ## Edit your profile text
 
 Change `profile.json`:
